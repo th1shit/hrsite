@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании | Headline — IT-решения для бизнеса</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Inter', sans-serif;
+            background-color: #f9fafc;
+            color: #1e2a3e;
+            line-height: 1.5;
+        }
+
+        :root {
+            --primary: #2c4b6e;
+            --primary-soft: #3e6b8c;
+            --gray-50: #f8f9fa;
+            --gray-100: #f1f3f5;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-600: #6c757d;
+            --gray-800: #343a40;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.03), 0 4px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 20px rgba(0,0,0,0.05);
+            --radius-card: 1.25rem;
+            --radius-btn: 2rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background-color: rgba(255,255,255,0.96);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--primary);
+        }
+        .logo span {
+            font-weight: 400;
+            color: var(--gray-600);
+        }
+        .nav {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+        .nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--gray-800);
+            transition: color 0.2s;
+        }
+        .nav a:hover {
+            color: var(--primary);
+        }
+        @media (max-width: 720px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav {
+                justify-content: center;
+                gap: 1.2rem;
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            border: 1px solid var(--gray-300);
+            padding: 0.7rem 1.6rem;
+            border-radius: var(--radius-btn);
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--gray-800);
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-soft);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #1e2a3e;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-card);
+            padding: 1.8rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        .footer {
+            background: var(--white);
+            border-top: 1px solid var(--gray-200);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--gray-600);
+        }
+        .text-muted {
+            color: var(--gray-600);
+        }
+        .mt-4 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 2rem; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo"><a href="index.html">Хэдлайн<span> | Headline</span></a></div>
+        <div class="nav">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О компании</a>
+            <a href="work.html">Работа у нас</a>
+            <a href="vacancies.html">Вакансии</a>
+            <a href="career.html">Карьера</a>
+            <a href="send-resume.html">Отправить резюме</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">О компании Headline</h1>
+            <div style="max-width: 800px; margin-bottom: 2rem;">
+                <p style="font-size: 1.2rem; color: var(--gray-600);">IT-компания из Ижевска, автоматизирующая бизнес с 2013 года.</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🏢 Кто мы</h3>
+                    <p>Headline (ООО «Хэдлайн-Ижевск») — российская IT-компания, специализирующаяся на разработке программного обеспечения, внедрении систем автоматизации для розничной торговли, ресторанного бизнеса и сферы услуг. Мы создаём надёжные цифровые продукты, которые помогают бизнесу расти и быть эффективнее.</p>
+                </div>
+                <div class="card">
+                    <h3>🎯 Наша миссия</h3>
+                    <p>Делать технологии доступными и полезными для каждого клиента. Мы превращаем сложные бизнес-задачи в простые и элегантные IT-решения, экономя время и ресурсы наших партнёров.</p>
+                </div>
+                <div class="card">
+                    <h3>⚙️ Экспертиза</h3>
+                    <p>Разработка ПО под ключ, IT-консалтинг, техническая поддержка, автоматизация складов и торговых точек, интеграции с популярными ERP и CRM. Наши решения работают в десятках компаний по всей России.</p>
+                </div>
+                <div class="card">
+                    <h3>🤝 Клиенты и партнёры</h3>
+                    <p>Среди наших клиентов — сети ресторанов, розничные магазины, логистические компании. Мы ценим долгосрочные отношения и подтверждаем качество реальными кейсами и благодарностями.</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <a href="vacancies.html" class="btn btn-primary">Присоединиться к команде →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--gray-50);">
+        <div class="container">
+            <h2 class="section-title">Почему клиенты выбирают Headline</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>✔️ Индивидуальный подход</h3>
+                    <p>Мы не предлагаем шаблоны — мы изучаем процессы бизнеса и предлагаем решение под конкретные задачи.</p>
+                </div>
+                <div class="card">
+                    <h3>✔️ Надёжность и безопасность</h3>
+                    <p>Используем современные стандарты защиты данных, гарантируем стабильную работу систем 24/7.</p>
+                </div>
+                <div class="card">
+                    <h3>✔️ Поддержка после запуска</h3>
+                    <p>Техническое сопровождение, обучение сотрудников, доработки под растущие потребности.</p>
+                </div>
+                <div class="card">
+                    <h3>✔️ Локализация в Ижевске</h3>
+                    <p>Мы здесь, мы рядом. Быстрый выезд специалистов, личные встречи и полное погружение в проекты.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container text-center" style="text-align: center;">
+            <h2 class="section-title">Будем рады сотрудничеству</h2>
+            <p class="text-muted" style="margin-bottom: 1.5rem;">Если вы ищете надёжного IT-партнёра или хотите стать частью нашей команды — свяжитесь с нами.</p>
+            <a href="send-resume.html" class="btn btn-primary">Отправить резюме</a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 Хэдлайн (Headline) — IT-решения для ритейла и ресторанов. Ижевск.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">HR-бренд, технологии, развитие</p>
+    </div>
+</footer>
+</body>
+</html>
