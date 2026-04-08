@@ -1,2 +1,7 @@
 User-agent: *
-Disallow: /
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /send-resume.html?*
+Disallow: /vacancies.html?*
+
+Sitemap: https://hrsite-fawn.vercel.app/sitemap.xml

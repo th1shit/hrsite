@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отправить резюме | Headline — карьера в IT</title>
+    <title>Отправить резюме в Headline – начни карьеру в IT</title>
+    <meta name="description" content="Заполни форму и отправь резюме. Headline ждёт IT-специалистов и менеджеров по продажам. Присоединяйся к команде.">
+    <meta name="keywords" content="отправить резюме, работа в Ижевске, резюме IT-специалиста, форма отклика">
     <style>
         * {
             margin: 0;
@@ -322,7 +324,6 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            // Простейшая валидация
             const fullname = document.getElementById('fullname').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
@@ -349,16 +350,8 @@
                 return;
             }
 
-            // Имитация успешной отправки — визуально, без реального POST
-            // Можно было бы собрать данные, но по ТЗ достаточно визуальной работы
             showAlert('✅ Спасибо! Ваше резюме получено. Мы свяжемся с вами в ближайшее время.', true);
             
-            // Очищаем форму (опционально, но по желанию — закомментируйте, если не надо)
-            // form.reset(); // Раскомментируйте, если хотите сброс. Но лучше оставить заполненным для демо
-            // Для имитации — просто показываем успех, данные не отправляются на сервер.
-            // При желании можно добавить сохранение в localStorage, но ТЗ этого не требует.
-            
-            // Дополнительно: можно вывести данные в консоль для отладки
             console.log({
                 fullname,
                 email,

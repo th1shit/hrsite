@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Headline | IT-команда для автоматизации бизнеса</title>
+    <title>Работа в IT-команде Headline – автоматизация бизнеса</title>
+    <meta name="description" content="Headline – IT-компания из Ижевска. Вакансии для системных администраторов, инженеров техподдержки, менеджеров по продажам. Отправь резюме.">
+    <meta name="keywords" content="работа в IT, вакансии Ижевск, инженер техподдержки, системный администратор, менеджер по продажам IT, Headline">
     <style>
         * {
             margin: 0;
@@ -19,7 +21,6 @@
             scroll-behavior: smooth;
         }
 
-        /* нейтральная палитра */
         :root {
             --primary: #2c4b6e;
             --primary-soft: #3e6b8c;
@@ -36,14 +37,12 @@
             --radius-btn: 2rem;
         }
 
-        /* общие классы */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Header */
         .header {
             background-color: var(--white);
             border-bottom: 1px solid var(--gray-200);
@@ -87,7 +86,6 @@
         .nav a:hover {
             color: var(--primary);
         }
-        /* мобильное меню простое */
         @media (max-width: 720px) {
             .header-inner {
                 flex-direction: column;
@@ -100,7 +98,6 @@
             }
         }
 
-        /* кнопки */
         .btn {
             display: inline-block;
             background-color: var(--white);
@@ -134,7 +131,6 @@
             border-color: var(--gray-600);
         }
 
-        /* секции */
         .section {
             padding: 5rem 0;
         }
@@ -148,13 +144,6 @@
             letter-spacing: -0.01em;
             color: #1e2a3e;
         }
-        .section-sub {
-            color: var(--gray-600);
-            max-width: 720px;
-            margin-bottom: 2rem;
-        }
-
-        /* карточки грид */
         .grid-4, .grid-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -185,7 +174,6 @@
             font-size: 0.95rem;
         }
 
-        /* steps */
         .steps {
             display: flex;
             flex-wrap: wrap;
@@ -219,7 +207,6 @@
             margin-bottom: 0.3rem;
         }
 
-        /* список вакансий на главной */
         .vacancies-list {
             display: flex;
             flex-direction: column;
@@ -245,39 +232,6 @@
             font-size: 0.85rem;
         }
 
-        /* форма */
-        .form-card {
-            background: var(--white);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--gray-200);
-            max-width: 720px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        label {
-            font-weight: 500;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid var(--gray-300);
-            border-radius: 1rem;
-            font-family: inherit;
-            background: var(--white);
-        }
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(44,75,110,0.1);
-        }
-
-        /* футер */
         .footer {
             background: var(--white);
             border-top: 1px solid var(--gray-200);
@@ -285,18 +239,6 @@
             color: var(--gray-600);
             text-align: center;
         }
-
-        /* страница оффер */
-        .page-header {
-            background: var(--gray-50);
-            border-bottom: 1px solid var(--gray-200);
-            padding: 2rem 0;
-        }
-        .page-header h1 {
-            font-size: 2.2rem;
-        }
-
-        /* полезные отступы */
         .text-center { text-align: center; }
         .mt-4 { margin-top: 2rem; }
         .mb-2 { margin-bottom: 1rem; }
@@ -321,7 +263,6 @@
 </header>
 
 <main>
-    <!-- БЛОК 1: Hero -->
     <section class="section" style="padding-bottom: 1rem;">
         <div class="container">
             <div style="max-width: 780px;">
@@ -332,7 +273,6 @@
         </div>
     </section>
 
-    <!-- БЛОК 2: Почему работать у нас (4 карточки) -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Почему работать у нас</h2>
@@ -361,7 +301,6 @@
         </div>
     </section>
 
-    <!-- БЛОК 3: Вакансии (список) -->
     <section class="section" style="padding-top: 0;">
         <div class="container">
             <h2 class="section-title">Актуальные вакансии</h2>
@@ -394,7 +333,6 @@
         </div>
     </section>
 
-    <!-- БЛОК 4: Как проходит найм (4 шага) -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Как проходит найм</h2>
@@ -407,7 +345,6 @@
         </div>
     </section>
 
-    <!-- БЛОК 5: CTA Отправить резюме -->
     <section class="section" style="background-color: var(--gray-50); border-radius: 2rem; margin: 1rem 1rem 2rem 1rem;">
         <div class="container text-center">
             <h2 style="font-size: 2rem; margin-bottom: 1rem;">Присоединяйся к Headline</h2>
@@ -419,14 +356,9 @@
 
 <footer class="footer">
     <div class="container">
-        <p>© 2026 Хэдлайн (Headline) — IT-решения для ритейла и ресторанного бизнеса</p>
+        <p>© 2026 Хэдлайн (Headline) — IT-решения для ритейла и ресторанов. Ижевск.</p>
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">HR-бренд, технологии, развитие</p>
     </div>
 </footer>
-
-<script>
-    // просто для согласованности (лёгкая имитация работы ссылок, необязательно)
-    // все кнопки работают как переходы
-</script>
 </body>
 </html>
