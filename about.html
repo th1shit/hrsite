@@ -2,10 +2,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О компании Headline – IT-решения для розницы и ресторанов</title>
-    <meta name="description" content="Headline – российская IT-компания. Миссия, экспертиза, клиенты. Надёжный партнёр в автоматизации бизнеса.">
-    <meta name="keywords" content="IT-компания Ижевск, автоматизация розницы, внедрение CRM, Headline, партнёр 1С">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Работа в IT-команде Headline – автоматизация бизнеса</title>
+    <meta name="description" content="Headline – IT-компания из Ижевска. Вакансии для системных администраторов, инженеров техподдержки, менеджеров по продажам. Отправь резюме.">
+    <meta name="keywords" content="работа в IT, вакансии Ижевск, инженер техподдержки, системный администратор, менеджер по продажам IT, Headline">
     <style>
         * {
             margin: 0;
@@ -14,10 +14,12 @@
         }
 
         body {
-            font-family: system-ui, 'Segoe UI', 'Roboto', 'Inter', sans-serif;
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
             background-color: #f9fafc;
             color: #1e2a3e;
             line-height: 1.5;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         :root {
@@ -56,12 +58,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
-            flex-wrap: wrap;
             gap: 1rem;
         }
         .logo a {
             font-size: 1.8rem;
             font-weight: 700;
+            letter-spacing: -0.02em;
             text-decoration: none;
             color: var(--primary);
         }
@@ -79,19 +81,10 @@
             font-weight: 500;
             color: var(--gray-800);
             transition: color 0.2s;
+            font-size: 1rem;
         }
         .nav a:hover {
             color: var(--primary);
-        }
-        @media (max-width: 720px) {
-            .header-inner {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .nav {
-                justify-content: center;
-                gap: 1.2rem;
-            }
         }
 
         .btn {
@@ -102,8 +95,15 @@
             border-radius: var(--radius-btn);
             font-weight: 600;
             text-decoration: none;
-            color: var(--gray-800);
             transition: all 0.2s;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--gray-800);
+            text-align: center;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         .btn-primary {
             background-color: var(--primary);
@@ -112,20 +112,29 @@
         }
         .btn-primary:hover {
             background-color: var(--primary-soft);
+            transform: translateY(-1px);
+        }
+        .btn-outline {
+            background: transparent;
+            border-color: var(--gray-300);
+        }
+        .btn-outline:hover {
+            background: var(--gray-100);
         }
 
         .section {
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
         .section-title {
-            font-size: 2rem;
+            font-size: clamp(1.6rem, 6vw, 2rem);
             font-weight: 700;
             margin-bottom: 2rem;
+            letter-spacing: -0.01em;
             color: #1e2a3e;
         }
-        .grid-2 {
+        .grid-4, .grid-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
         }
         .card {
@@ -134,31 +143,214 @@
             padding: 1.8rem;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--gray-200);
+            transition: 0.2s;
         }
-        .card h3 {
-            font-size: 1.4rem;
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        .card-icon {
+            font-size: 2.2rem;
             margin-bottom: 1rem;
         }
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.6rem;
+        }
+        .card p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+        }
+        .step-item {
+            flex: 1;
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            min-width: 160px;
+        }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-100);
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin: 0 auto 1rem auto;
+            color: var(--primary);
+        }
+
+        .vacancies-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .vacancy-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            padding: 1.2rem 1.5rem;
+            border-radius: 1.2rem;
+            border: 1px solid var(--gray-200);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .vacancy-info h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .vacancy-info p {
+            color: var(--gray-600);
+            font-size: 0.85rem;
+        }
+
         .footer {
             background: var(--white);
             border-top: 1px solid var(--gray-200);
-            padding: 2rem 0;
+            padding: 2.5rem 0;
+            color: var(--gray-600);
             text-align: center;
-            color: var(--gray-600);
         }
-        .text-muted {
-            color: var(--gray-600);
-        }
+        .text-center { text-align: center; }
         .mt-4 { margin-top: 2rem; }
-        .mb-4 { margin-bottom: 2rem; }
+
+        /* ===== Адаптив ===== */
+        @media (max-width: 720px) {
+            .container {
+                padding: 0 16px;
+            }
+            .header-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: nowrap;
+            }
+            .nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                gap: 0;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                z-index: 200;
+            }
+            .nav.active {
+                display: flex;
+            }
+            .nav a {
+                padding: 1rem;
+                border-bottom: 1px solid var(--gray-200);
+                width: 100%;
+                text-align: center;
+            }
+            .burger {
+                display: block;
+                width: 30px;
+                height: 24px;
+                position: relative;
+                cursor: pointer;
+                background: none;
+                border: none;
+            }
+            .burger span {
+                display: block;
+                position: absolute;
+                height: 3px;
+                width: 100%;
+                background: var(--primary);
+                border-radius: 3px;
+                left: 0;
+                transition: 0.3s;
+            }
+            .burger span:nth-child(1) { top: 0; }
+            .burger span:nth-child(2) { top: 10px; }
+            .burger span:nth-child(3) { top: 20px; }
+            .burger.active span:nth-child(1) {
+                transform: rotate(45deg);
+                top: 10px;
+            }
+            .burger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .burger.active span:nth-child(3) {
+                transform: rotate(-45deg);
+                top: 10px;
+            }
+        }
+        @media (min-width: 721px) {
+            .burger {
+                display: none;
+            }
+            .nav {
+                display: flex !important;
+                position: static;
+                width: auto;
+                flex-direction: row;
+                background: transparent;
+                box-shadow: none;
+            }
+            .nav a {
+                padding: 0;
+                border: none;
+                width: auto;
+            }
+        }
+        @media (max-width: 640px) {
+            .section {
+                padding: 2rem 0;
+            }
+            .grid-4, .grid-steps, .steps {
+                grid-template-columns: 1fr;
+            }
+            .steps {
+                flex-direction: column;
+            }
+            .vacancy-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .vacancy-action {
+                width: 100%;
+            }
+            .vacancy-action .btn {
+                width: 100%;
+            }
+            h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 <body>
 
 <header class="header">
     <div class="container header-inner">
-        <div class="logo"><a href="index.html">Хэдлайн<span> | Headline</span></a></div>
-        <div class="nav">
+        <div class="logo">
+            <a href="index.html">Хэдлайн<span> | Headline</span></a>
+        </div>
+        <button class="burger" id="burgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav" id="navMenu">
             <a href="index.html">Главная</a>
             <a href="about.html">О компании</a>
             <a href="work.html">Работа у нас</a>
@@ -170,65 +362,99 @@
 </header>
 
 <main>
-    <section class="section">
+    <section class="section" style="padding-bottom: 1rem;">
         <div class="container">
-            <h1 class="section-title">О компании Headline</h1>
-            <div style="max-width: 800px; margin-bottom: 2rem;">
-                <p style="font-size: 1.2rem; color: var(--gray-600);">IT-компания из Ижевска, автоматизирующая бизнес с 2013 года.</p>
-            </div>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>🏢 Кто мы</h3>
-                    <p>Headline (ООО «Хэдлайн-Ижевск») — российская IT-компания, специализирующаяся на разработке программного обеспечения, внедрении систем автоматизации для розничной торговли, ресторанного бизнеса и сферы услуг. Мы создаём надёжные цифровые продукты, которые помогают бизнесу расти и быть эффективнее.</p>
-                </div>
-                <div class="card">
-                    <h3>🎯 Наша миссия</h3>
-                    <p>Делать технологии доступными и полезными для каждого клиента. Мы превращаем сложные бизнес-задачи в простые и элегантные IT-решения, экономя время и ресурсы наших партнёров.</p>
-                </div>
-                <div class="card">
-                    <h3>⚙️ Экспертиза</h3>
-                    <p>Разработка ПО под ключ, IT-консалтинг, техническая поддержка, автоматизация складов и торговых точек, интеграции с популярными ERP и CRM. Наши решения работают в десятках компаний по всей России.</p>
-                </div>
-                <div class="card">
-                    <h3>🤝 Клиенты и партнёры</h3>
-                    <p>Среди наших клиентов — сети ресторанов, розничные магазины, логистические компании. Мы ценим долгосрочные отношения и подтверждаем качество реальными кейсами и благодарностями.</p>
-                </div>
-            </div>
-            <div class="mt-4">
-                <a href="vacancies.html" class="btn btn-primary">Присоединиться к команде →</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" style="background-color: var(--gray-50);">
-        <div class="container">
-            <h2 class="section-title">Почему клиенты выбирают Headline</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>✔️ Индивидуальный подход</h3>
-                    <p>Мы не предлагаем шаблоны — мы изучаем процессы бизнеса и предлагаем решение под конкретные задачи.</p>
-                </div>
-                <div class="card">
-                    <h3>✔️ Надёжность и безопасность</h3>
-                    <p>Используем современные стандарты защиты данных, гарантируем стабильную работу систем 24/7.</p>
-                </div>
-                <div class="card">
-                    <h3>✔️ Поддержка после запуска</h3>
-                    <p>Техническое сопровождение, обучение сотрудников, доработки под растущие потребности.</p>
-                </div>
-                <div class="card">
-                    <h3>✔️ Локализация в Ижевске</h3>
-                    <p>Мы здесь, мы рядом. Быстрый выезд специалистов, личные встречи и полное погружение в проекты.</p>
-                </div>
+            <div style="max-width: 780px;">
+                <h1 style="font-size: clamp(2rem, 8vw, 3rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">Работай в IT-команде,<br>которая автоматизирует бизнес</h1>
+                <p style="font-size: 1.25rem; color: var(--gray-600); margin-bottom: 2rem;">Разрабатываем и поддерживаем IT-решения для розницы и ресторанов</p>
+                <a href="vacancies.html" class="btn btn-primary" style="padding: 0.9rem 2rem;">Смотреть вакансии</a>
             </div>
         </div>
     </section>
 
     <section class="section">
-        <div class="container text-center" style="text-align: center;">
-            <h2 class="section-title">Будем рады сотрудничеству</h2>
-            <p class="text-muted" style="margin-bottom: 1.5rem;">Если вы ищете надёжного IT-партнёра или хотите стать частью нашей команды — свяжитесь с нами.</p>
-            <a href="send-resume.html" class="btn btn-primary">Отправить резюме</a>
+        <div class="container">
+            <h2 class="section-title">Почему работать у нас</h2>
+            <div class="grid-4">
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3>Работа в IT компании</h3>
+                    <p>Современный стек, продуктовый подход, удалёнка и офис.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Реальные проекты</h3>
+                    <p>Влияй на IT-решения для крупных сетей и ресторанов.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Рост и обучение</h3>
+                    <p>Курсы, митапы, менторство — invest в твоё развитие.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Сильная команда</h3>
+                    <p>Эксперты, поддержка и культура открытости.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <h2 class="section-title">Актуальные вакансии</h2>
+            <div class="vacancies-list">
+                <div class="vacancy-row">
+                    <div class="vacancy-info">
+                        <h4>Инженер техподдержки</h4>
+                        <p>Поддержка клиентов, работа с инцидентами / гибрид</p>
+                    </div>
+                    <div class="vacancy-action">
+                        <a href="send-resume.html?position=Инженер техподдержки" class="btn btn-outline">Откликнуться</a>
+                    </div>
+                </div>
+                <div class="vacancy-row">
+                    <div class="vacancy-info">
+                        <h4>IT-специалист / Системный администратор</h4>
+                        <p>Обслуживание инфраструктуры, автоматизация</p>
+                    </div>
+                    <div class="vacancy-action">
+                        <a href="send-resume.html?position=IT-специалист" class="btn btn-outline">Откликнуться</a>
+                    </div>
+                </div>
+                <div class="vacancy-row">
+                    <div class="vacancy-info">
+                        <h4>Менеджер по продажам IT-решений</h4>
+                        <p>B2B продажи, работа с корпоративными клиентами</p>
+                    </div>
+                    <div class="vacancy-action">
+                        <a href="send-resume.html?position=Менеджер по продажам IT решений" class="btn btn-outline">Откликнуться</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="vacancies.html" class="btn">Все вакансии →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Как проходит найм</h2>
+            <div class="steps">
+                <div class="step-item"><div class="step-number">1</div><h4>Отклик</h4><p>Отправь резюме и краткое сопроводительное</p></div>
+                <div class="step-item"><div class="step-number">2</div><h4>Интервью</h4><p>Знакомство с HR и техническое собеседование</p></div>
+                <div class="step-item"><div class="step-number">3</div><h4>Тестовое задание</h4><p>Практическая задача, приближенная к реальности</p></div>
+                <div class="step-item"><div class="step-number">4</div><h4>Оффер</h4><p>Предложение, онбординг и welcome-pack</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--gray-50); border-radius: 2rem; margin: 1rem 1rem 2rem 1rem;">
+        <div class="container text-center">
+            <h2 style="font-size: clamp(1.6rem, 6vw, 2rem); margin-bottom: 1rem;">Присоединяйся к Headline</h2>
+            <p style="margin-bottom: 2rem; color: var(--gray-600);">Стань частью команды, которая создаёт технологическое будущее.</p>
+            <a href="send-resume.html" class="btn btn-primary" style="padding: 0.9rem 2.5rem;">Отправить резюме →</a>
         </div>
     </section>
 </main>
@@ -239,5 +465,24 @@
         <p style="margin-top: 0.5rem; font-size: 0.85rem;">HR-бренд, технологии, развитие</p>
     </div>
 </footer>
+
+<script>
+    (function() {
+        const burger = document.getElementById('burgerBtn');
+        const nav = document.getElementById('navMenu');
+        if (burger && nav) {
+            burger.addEventListener('click', () => {
+                burger.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+            nav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    burger.classList.remove('active');
+                    nav.classList.remove('active');
+                });
+            });
+        }
+    })();
+</script>
 </body>
 </html>

@@ -2,367 +2,71 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Отправить резюме в Headline – начни карьеру в IT</title>
     <meta name="description" content="Заполни форму и отправь резюме. Headline ждёт IT-специалистов и менеджеров по продажам. Присоединяйся к команде.">
     <meta name="keywords" content="отправить резюме, работа в Ижевске, резюме IT-специалиста, форма отклика">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif; background:#f9fafc; color:#1e2a3e; line-height:1.5; overflow-x:hidden; }
+        :root { --primary:#2c4b6e; --primary-soft:#3e6b8c; --gray-50:#f8f9fa; --gray-100:#f1f3f5; --gray-200:#e9ecef; --gray-300:#dee2e6; --gray-600:#6c757d; --gray-800:#343a40; --white:#ffffff; --shadow-sm:0 1px 2px rgba(0,0,0,0.03),0 4px 8px rgba(0,0,0,0.05); --shadow-md:0 8px 20px rgba(0,0,0,0.05); --radius-card:1.25rem; --radius-btn:2rem; }
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .header { background:var(--white); border-bottom:1px solid var(--gray-200); position:sticky; top:0; z-index:100; backdrop-filter:blur(2px); background-color:rgba(255,255,255,0.96); }
+        .header-inner { display:flex; justify-content:space-between; align-items:center; padding:1rem 0; gap:1rem; }
+        .logo a { font-size:1.8rem; font-weight:700; text-decoration:none; color:var(--primary); }
+        .logo span { font-weight:400; color:var(--gray-600); }
+        .nav { display:flex; gap:1.8rem; flex-wrap:wrap; }
+        .nav a { text-decoration:none; font-weight:500; color:var(--gray-800); transition:color 0.2s; }
+        .nav a:hover { color:var(--primary); }
+        .btn { display:inline-block; background:var(--white); border:1px solid var(--gray-300); padding:0.7rem 1.6rem; border-radius:var(--radius-btn); font-weight:600; text-decoration:none; transition:all 0.2s; cursor:pointer; font-size:0.95rem; color:var(--gray-800); min-height:44px; display:inline-flex; align-items:center; justify-content:center; }
+        .btn-primary { background:var(--primary); border-color:var(--primary); color:white; }
+        .btn-primary:hover { background:var(--primary-soft); transform:translateY(-1px); }
+        .section { padding:3rem 0 5rem 0; }
+        .section-title { font-size:clamp(1.6rem,6vw,2rem); font-weight:700; margin-bottom:1rem; color:#1e2a3e; }
+        .form-card { background:var(--white); border-radius:var(--radius-card); padding:2rem; box-shadow:var(--shadow-md); border:1px solid var(--gray-200); max-width:780px; margin:0 auto; }
+        .form-group { margin-bottom:1.5rem; }
+        label { font-weight:500; display:block; margin-bottom:0.5rem; color:var(--gray-800); }
+        .required:after { content:" *"; color:#e03a3a; }
+        input, select, textarea { width:100%; padding:0.8rem 1rem; border:1px solid var(--gray-300); border-radius:1rem; font-family:inherit; background:var(--white); transition:0.2s; font-size:16px; }
+        input:focus, select:focus, textarea:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(44,75,110,0.1); }
+        .file-input { padding:0.5rem 0; border:none; }
+        .file-input::-webkit-file-upload-button { background:var(--gray-100); border:1px solid var(--gray-300); border-radius:2rem; padding:0.5rem 1rem; font-family:inherit; cursor:pointer; }
+        .form-row { display:flex; gap:1.5rem; flex-wrap:wrap; }
+        .form-row .form-group { flex:1; }
+        .submit-area { text-align:center; margin-top:2rem; }
+        .alert { background:#e8f0fe; border-left:4px solid var(--primary); padding:1rem; border-radius:1rem; margin-bottom:1.5rem; display:none; }
+        .alert-success { background:#e0f2e9; border-left-color:#2c6e4e; color:#1a4a34; }
+        .alert-error { background:#fee9e6; border-left-color:#d9534f; color:#a43a36; }
+        .footer { background:var(--white); border-top:1px solid var(--gray-200); padding:2rem 0; text-align:center; color:var(--gray-600); }
+        .text-center { text-align:center; }
+        .mt-2 { margin-top:0.5rem; }
+        @media (max-width:720px) {
+            .container { padding:0 16px; }
+            .header-inner { flex-direction:row; justify-content:space-between; flex-wrap:nowrap; }
+            .nav { display:none; position:absolute; top:70px; left:0; width:100%; background:var(--white); flex-direction:column; gap:0; box-shadow:0 8px 16px rgba(0,0,0,0.1); z-index:200; }
+            .nav.active { display:flex; }
+            .nav a { padding:1rem; border-bottom:1px solid var(--gray-200); width:100%; text-align:center; }
+            .burger { display:block; width:30px; height:24px; position:relative; cursor:pointer; background:none; border:none; }
+            .burger span { display:block; position:absolute; height:3px; width:100%; background:var(--primary); border-radius:3px; left:0; transition:0.3s; }
+            .burger span:nth-child(1) { top:0; }
+            .burger span:nth-child(2) { top:10px; }
+            .burger span:nth-child(3) { top:20px; }
+            .burger.active span:nth-child(1) { transform:rotate(45deg); top:10px; }
+            .burger.active span:nth-child(2) { opacity:0; }
+            .burger.active span:nth-child(3) { transform:rotate(-45deg); top:10px; }
         }
-
-        body {
-            font-family: system-ui, 'Segoe UI', 'Roboto', 'Inter', sans-serif;
-            background-color: #f9fafc;
-            color: #1e2a3e;
-            line-height: 1.5;
-        }
-
-        :root {
-            --primary: #2c4b6e;
-            --primary-soft: #3e6b8c;
-            --gray-50: #f8f9fa;
-            --gray-100: #f1f3f5;
-            --gray-200: #e9ecef;
-            --gray-300: #dee2e6;
-            --gray-600: #6c757d;
-            --gray-800: #343a40;
-            --white: #ffffff;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.03), 0 4px 8px rgba(0,0,0,0.05);
-            --shadow-md: 0 8px 20px rgba(0,0,0,0.05);
-            --radius-card: 1.25rem;
-            --radius-btn: 2rem;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .header {
-            background-color: var(--white);
-            border-bottom: 1px solid var(--gray-200);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(2px);
-            background-color: rgba(255,255,255,0.96);
-        }
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .logo a {
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--primary);
-        }
-        .logo span {
-            font-weight: 400;
-            color: var(--gray-600);
-        }
-        .nav {
-            display: flex;
-            gap: 1.8rem;
-            flex-wrap: wrap;
-        }
-        .nav a {
-            text-decoration: none;
-            font-weight: 500;
-            color: var(--gray-800);
-            transition: color 0.2s;
-        }
-        .nav a:hover {
-            color: var(--primary);
-        }
-        @media (max-width: 720px) {
-            .header-inner {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .nav {
-                justify-content: center;
-                gap: 1.2rem;
-            }
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--white);
-            border: 1px solid var(--gray-300);
-            padding: 0.7rem 1.6rem;
-            border-radius: var(--radius-btn);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-            cursor: pointer;
-            font-size: 0.95rem;
-            color: var(--gray-800);
-            text-align: center;
-        }
-        .btn-primary {
-            background-color: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: var(--primary-soft);
-            transform: translateY(-1px);
-        }
-        .btn-outline {
-            background: transparent;
-            border-color: var(--gray-300);
-        }
-
-        .section {
-            padding: 3rem 0 5rem 0;
-        }
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1e2a3e;
-        }
-        .form-card {
-            background: var(--white);
-            border-radius: var(--radius-card);
-            padding: 2rem 2rem 2.5rem 2rem;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--gray-200);
-            max-width: 780px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        label {
-            font-weight: 500;
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--gray-800);
-        }
-        .required:after {
-            content: " *";
-            color: #e03a3a;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid var(--gray-300);
-            border-radius: 1rem;
-            font-family: inherit;
-            background: var(--white);
-            transition: 0.2s;
-        }
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(44,75,110,0.1);
-        }
-        .file-input {
-            padding: 0.5rem 0;
-            border: none;
-        }
-        .file-input::-webkit-file-upload-button {
-            background: var(--gray-100);
-            border: 1px solid var(--gray-300);
-            border-radius: 2rem;
-            padding: 0.5rem 1rem;
-            font-family: inherit;
-            cursor: pointer;
-        }
-        .form-row {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .form-row .form-group {
-            flex: 1;
-        }
-        .submit-area {
-            text-align: center;
-            margin-top: 2rem;
-        }
-        .alert {
-            background: #e8f0fe;
-            border-left: 4px solid var(--primary);
-            padding: 1rem;
-            border-radius: 1rem;
-            margin-bottom: 1.5rem;
-            display: none;
-        }
-        .alert-success {
-            background: #e0f2e9;
-            border-left-color: #2c6e4e;
-            color: #1a4a34;
-        }
-        .alert-error {
-            background: #fee9e6;
-            border-left-color: #d9534f;
-            color: #a43a36;
-        }
-        .footer {
-            background: var(--white);
-            border-top: 1px solid var(--gray-200);
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--gray-600);
-        }
-        .text-center {
-            text-align: center;
-        }
-        .mt-2 {
-            margin-top: 0.5rem;
-        }
+        @media (min-width:721px) { .burger { display:none; } .nav { display:flex !important; position:static; width:auto; flex-direction:row; background:transparent; box-shadow:none; } .nav a { padding:0; border:none; width:auto; } }
+        @media (max-width:640px) { .section { padding:2rem 0; } .form-card { padding:1.5rem; } .form-row { flex-direction:column; gap:1rem; } .btn-primary { width:100%; } }
     </style>
 </head>
 <body>
-
-<header class="header">
-    <div class="container header-inner">
-        <div class="logo"><a href="index.html">Хэдлайн<span> | Headline</span></a></div>
-        <div class="nav">
-            <a href="index.html">Главная</a>
-            <a href="about.html">О компании</a>
-            <a href="work.html">Работа у нас</a>
-            <a href="vacancies.html">Вакансии</a>
-            <a href="career.html">Карьера</a>
-            <a href="send-resume.html">Отправить резюме</a>
-        </div>
-    </div>
-</header>
-
-<main>
-    <section class="section">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 2rem;">
-                <h1 class="section-title">Отправить резюме</h1>
-                <p style="color: var(--gray-600);">Заполните форму, и мы свяжемся с вами в ближайшее время</p>
-            </div>
-            <div class="form-card">
-                <div id="formAlert" class="alert"></div>
-                <form id="resumeForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Имя и фамилия</label>
-                            <input type="text" id="fullname" placeholder="Иван Иванов" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Email</label>
-                            <input type="email" id="email" placeholder="ivan@example.com" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="required">Телефон</label>
-                            <input type="tel" id="phone" placeholder="+7 (999) 123-45-67" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="required">Желаемая должность</label>
-                            <select id="position" required>
-                                <option value="">-- Выберите --</option>
-                                <option>Инженер техподдержки</option>
-                                <option>IT-специалист / Системный администратор</option>
-                                <option>Менеджер по продажам IT-решений</option>
-                                <option>Стажёр в IT-отдел</option>
-                                <option>Другое (укажите в сообщении)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Резюме (файл PDF, DOC)</label>
-                        <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" class="file-input">
-                        <div class="mt-2" style="font-size: 0.8rem; color: var(--gray-600);">Максимум 5 МБ. Если не прикрепляете файл, заполните поле "О себе"</div>
-                    </div>
-                    <div class="form-group">
-                        <label>О себе, опыт, достижения</label>
-                        <textarea id="about" rows="5" placeholder="Расскажите о вашем опыте, почему хотите работать в Headline..."></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Ссылка на LinkedIn / GitHub / HH (опционально)</label>
-                        <input type="url" id="link" placeholder="https://...">
-                    </div>
-                    <div class="submit-area">
-                        <button type="submit" class="btn btn-primary" style="min-width: 200px;">Отправить резюме →</button>
-                        <p style="font-size: 0.8rem; margin-top: 1rem; color: var(--gray-600);">Нажимая на кнопку, вы даёте согласие на обработку персональных данных</p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer class="footer">
-    <div class="container">
-        <p>© 2026 Хэдлайн (Headline) — IT-решения для ритейла и ресторанов. Ижевск.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Отправьте резюме и начните карьеру в IT</p>
-    </div>
-</footer>
-
+<header class="header"><div class="container header-inner"><div class="logo"><a href="index.html">Хэдлайн<span> | Headline</span></a></div><button class="burger" id="burgerBtn"><span></span><span></span><span></span></button><div class="nav" id="navMenu"><a href="index.html">Главная</a><a href="about.html">О компании</a><a href="work.html">Работа у нас</a><a href="vacancies.html">Вакансии</a><a href="career.html">Карьера</a><a href="send-resume.html">Отправить резюме</a></div></div></header>
+<main><section class="section"><div class="container"><div class="text-center" style="margin-bottom:2rem;"><h1 class="section-title">Отправить резюме</h1><p style="color:var(--gray-600);">Заполните форму, и мы свяжемся с вами в ближайшее время</p></div><div class="form-card"><div id="formAlert" class="alert"></div><form id="resumeForm"><div class="form-row"><div class="form-group"><label class="required">Имя и фамилия</label><input type="text" id="fullname" placeholder="Иван Иванов" required></div><div class="form-group"><label class="required">Email</label><input type="email" id="email" placeholder="ivan@example.com" required></div></div><div class="form-row"><div class="form-group"><label class="required">Телефон</label><input type="tel" id="phone" placeholder="+7 (999) 123-45-67" required></div><div class="form-group"><label class="required">Желаемая должность</label><select id="position" required><option value="">-- Выберите --</option><option>Инженер техподдержки</option><option>IT-специалист / Системный администратор</option><option>Менеджер по продажам IT-решений</option><option>Стажёр в IT-отдел</option><option>Другое (укажите в сообщении)</option></select></div></div><div class="form-group"><label>Резюме (файл PDF, DOC)</label><input type="file" id="resumeFile" accept=".pdf,.doc,.docx" class="file-input"><div class="mt-2" style="font-size:0.8rem; color:var(--gray-600);">Максимум 5 МБ. Если не прикрепляете файл, заполните поле "О себе"</div></div><div class="form-group"><label>О себе, опыт, достижения</label><textarea id="about" rows="5" placeholder="Расскажите о вашем опыте, почему хотите работать в Headline..."></textarea></div><div class="form-group"><label>Ссылка на LinkedIn / GitHub / HH (опционально)</label><input type="url" id="link" placeholder="https://..."></div><div class="submit-area"><button type="submit" class="btn btn-primary" style="min-width:200px;">Отправить резюме →</button><p style="font-size:0.8rem; margin-top:1rem; color:var(--gray-600);">Нажимая на кнопку, вы даёте согласие на обработку персональных данных</p></div></form></div></div></section></main>
+<footer class="footer"><div class="container"><p>© 2026 Хэдлайн (Headline) — IT-решения для ритейла и ресторанов. Ижевск.</p><p style="margin-top:0.5rem; font-size:0.85rem;">Отправьте резюме и начните карьеру в IT</p></div></footer>
 <script>
-    (function() {
-        const form = document.getElementById('resumeForm');
-        const alertBox = document.getElementById('formAlert');
-
-        function showAlert(message, isSuccess = false) {
-            alertBox.textContent = message;
-            alertBox.className = 'alert ' + (isSuccess ? 'alert-success' : 'alert-error');
-            alertBox.style.display = 'block';
-            setTimeout(() => {
-                alertBox.style.display = 'none';
-            }, 5000);
-        }
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const fullname = document.getElementById('fullname').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const position = document.getElementById('position').value;
-
-            if (!fullname) {
-                showAlert('Пожалуйста, укажите имя и фамилию');
-                return;
-            }
-            if (!email) {
-                showAlert('Введите email для обратной связи');
-                return;
-            }
-            if (!email.includes('@') || !email.includes('.')) {
-                showAlert('Введите корректный email');
-                return;
-            }
-            if (!phone) {
-                showAlert('Укажите номер телефона');
-                return;
-            }
-            if (!position) {
-                showAlert('Выберите желаемую должность');
-                return;
-            }
-
-            showAlert('✅ Спасибо! Ваше резюме получено. Мы свяжемся с вами в ближайшее время.', true);
-            
-            console.log({
-                fullname,
-                email,
-                phone,
-                position,
-                about: document.getElementById('about').value,
-                link: document.getElementById('link').value,
-                file: document.getElementById('resumeFile').files[0]?.name || 'не выбран'
-            });
-        });
-    })();
+    (function(){ const form=document.getElementById('resumeForm'), alertBox=document.getElementById('formAlert'); function showAlert(m,s){ alertBox.textContent=m; alertBox.className='alert '+(s?'alert-success':'alert-error'); alertBox.style.display='block'; setTimeout(()=>{ alertBox.style.display='none'; },5000); } form.addEventListener('submit',function(e){ e.preventDefault(); const fullname=document.getElementById('fullname').value.trim(), email=document.getElementById('email').value.trim(), phone=document.getElementById('phone').value.trim(), position=document.getElementById('position').value; if(!fullname){ showAlert('Пожалуйста, укажите имя и фамилию'); return; } if(!email||!email.includes('@')||!email.includes('.')){ showAlert('Введите корректный email'); return; } if(!phone){ showAlert('Укажите номер телефона'); return; } if(!position){ showAlert('Выберите желаемую должность'); return; } showAlert('✅ Спасибо! Ваше резюме получено. Мы свяжемся с вами в ближайшее время.', true); console.log({fullname,email,phone,position,about:document.getElementById('about').value,link:document.getElementById('link').value,file:document.getElementById('resumeFile').files[0]?.name||'не выбран'}); }); })();
+    const burger=document.getElementById('burgerBtn'), nav=document.getElementById('navMenu');
+    if(burger&&nav){ burger.addEventListener('click',()=>{ burger.classList.toggle('active'); nav.classList.toggle('active'); }); nav.querySelectorAll('a').forEach(link=>{ link.addEventListener('click',()=>{ burger.classList.remove('active'); nav.classList.remove('active'); }); }); }
 </script>
 </body>
 </html>

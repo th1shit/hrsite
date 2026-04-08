@@ -2,295 +2,67 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Работа в Headline – культура, ценности, преимущества</title>
     <meta name="description" content="Узнай о культуре и ценностях Headline. Преимущества работы: гибкий график, обучение, сильная команда. Стань частью IT-команды.">
     <meta name="keywords" content="работа в IT, культура компании, ценности, преимущества для сотрудников, Headline карьера">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif; background:#f9fafc; color:#1e2a3e; line-height:1.5; overflow-x:hidden; }
+        :root { --primary:#2c4b6e; --primary-soft:#3e6b8c; --gray-50:#f8f9fa; --gray-100:#f1f3f5; --gray-200:#e9ecef; --gray-300:#dee2e6; --gray-600:#6c757d; --gray-800:#343a40; --white:#ffffff; --shadow-sm:0 1px 2px rgba(0,0,0,0.03),0 4px 8px rgba(0,0,0,0.05); --shadow-md:0 8px 20px rgba(0,0,0,0.05); --radius-card:1.25rem; --radius-btn:2rem; }
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .header { background:var(--white); border-bottom:1px solid var(--gray-200); position:sticky; top:0; z-index:100; backdrop-filter:blur(2px); background-color:rgba(255,255,255,0.96); }
+        .header-inner { display:flex; justify-content:space-between; align-items:center; padding:1rem 0; gap:1rem; }
+        .logo a { font-size:1.8rem; font-weight:700; text-decoration:none; color:var(--primary); }
+        .logo span { font-weight:400; color:var(--gray-600); }
+        .nav { display:flex; gap:1.8rem; flex-wrap:wrap; }
+        .nav a { text-decoration:none; font-weight:500; color:var(--gray-800); transition:color 0.2s; }
+        .nav a:hover { color:var(--primary); }
+        .btn { display:inline-block; background:var(--white); border:1px solid var(--gray-300); padding:0.7rem 1.6rem; border-radius:var(--radius-btn); font-weight:600; text-decoration:none; transition:all 0.2s; color:var(--gray-800); min-height:44px; display:inline-flex; align-items:center; justify-content:center; }
+        .btn-primary { background:var(--primary); border-color:var(--primary); color:white; }
+        .btn-primary:hover { background:var(--primary-soft); }
+        .section { padding:4rem 0; }
+        .section-title { font-size:clamp(1.6rem,6vw,2rem); font-weight:700; margin-bottom:2rem; color:#1e2a3e; }
+        .grid-3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+        .card { background:var(--white); border-radius:var(--radius-card); padding:1.8rem; box-shadow:var(--shadow-sm); border:1px solid var(--gray-200); transition:0.2s; }
+        .card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+        .card-icon { font-size:2.5rem; margin-bottom:1rem; }
+        .card h3 { font-size:1.4rem; margin-bottom:0.75rem; }
+        .footer { background:var(--white); border-top:1px solid var(--gray-200); padding:2rem 0; text-align:center; color:var(--gray-600); }
+        .text-center { text-align:center; }
+        .mt-4 { margin-top:2rem; }
+        @media (max-width:720px) {
+            .container { padding:0 16px; }
+            .header-inner { flex-direction:row; justify-content:space-between; flex-wrap:nowrap; }
+            .nav { display:none; position:absolute; top:70px; left:0; width:100%; background:var(--white); flex-direction:column; gap:0; box-shadow:0 8px 16px rgba(0,0,0,0.1); z-index:200; }
+            .nav.active { display:flex; }
+            .nav a { padding:1rem; border-bottom:1px solid var(--gray-200); width:100%; text-align:center; }
+            .burger { display:block; width:30px; height:24px; position:relative; cursor:pointer; background:none; border:none; }
+            .burger span { display:block; position:absolute; height:3px; width:100%; background:var(--primary); border-radius:3px; left:0; transition:0.3s; }
+            .burger span:nth-child(1) { top:0; }
+            .burger span:nth-child(2) { top:10px; }
+            .burger span:nth-child(3) { top:20px; }
+            .burger.active span:nth-child(1) { transform:rotate(45deg); top:10px; }
+            .burger.active span:nth-child(2) { opacity:0; }
+            .burger.active span:nth-child(3) { transform:rotate(-45deg); top:10px; }
         }
-
-        body {
-            font-family: system-ui, 'Segoe UI', 'Roboto', 'Inter', sans-serif;
-            background-color: #f9fafc;
-            color: #1e2a3e;
-            line-height: 1.5;
-        }
-
-        :root {
-            --primary: #2c4b6e;
-            --primary-soft: #3e6b8c;
-            --gray-50: #f8f9fa;
-            --gray-100: #f1f3f5;
-            --gray-200: #e9ecef;
-            --gray-300: #dee2e6;
-            --gray-600: #6c757d;
-            --gray-800: #343a40;
-            --white: #ffffff;
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.03), 0 4px 8px rgba(0,0,0,0.05);
-            --shadow-md: 0 8px 20px rgba(0,0,0,0.05);
-            --radius-card: 1.25rem;
-            --radius-btn: 2rem;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .header {
-            background-color: var(--white);
-            border-bottom: 1px solid var(--gray-200);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(2px);
-            background-color: rgba(255,255,255,0.96);
-        }
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .logo a {
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--primary);
-        }
-        .logo span {
-            font-weight: 400;
-            color: var(--gray-600);
-        }
-        .nav {
-            display: flex;
-            gap: 1.8rem;
-            flex-wrap: wrap;
-        }
-        .nav a {
-            text-decoration: none;
-            font-weight: 500;
-            color: var(--gray-800);
-            transition: color 0.2s;
-        }
-        .nav a:hover {
-            color: var(--primary);
-        }
-        @media (max-width: 720px) {
-            .header-inner {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .nav {
-                justify-content: center;
-                gap: 1.2rem;
-            }
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--white);
-            border: 1px solid var(--gray-300);
-            padding: 0.7rem 1.6rem;
-            border-radius: var(--radius-btn);
-            font-weight: 600;
-            text-decoration: none;
-            color: var(--gray-800);
-            transition: all 0.2s;
-        }
-        .btn-primary {
-            background-color: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: var(--primary-soft);
-        }
-
-        .section {
-            padding: 4rem 0;
-        }
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #1e2a3e;
-        }
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        .card {
-            background: var(--white);
-            border-radius: var(--radius-card);
-            padding: 1.8rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--gray-200);
-            transition: 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.75rem;
-        }
-        .footer {
-            background: var(--white);
-            border-top: 1px solid var(--gray-200);
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--gray-600);
-        }
-        .text-center {
-            text-align: center;
-        }
-        .mt-4 {
-            margin-top: 2rem;
-        }
+        @media (min-width:721px) { .burger { display:none; } .nav { display:flex !important; position:static; width:auto; flex-direction:row; background:transparent; box-shadow:none; } .nav a { padding:0; border:none; width:auto; } }
+        @media (max-width:640px) { .section { padding:2rem 0; } .grid-3 { grid-template-columns:1fr; } }
     </style>
 </head>
 <body>
-
-<header class="header">
-    <div class="container header-inner">
-        <div class="logo"><a href="index.html">Хэдлайн<span> | Headline</span></a></div>
-        <div class="nav">
-            <a href="index.html">Главная</a>
-            <a href="about.html">О компании</a>
-            <a href="work.html">Работа у нас</a>
-            <a href="vacancies.html">Вакансии</a>
-            <a href="career.html">Карьера</a>
-            <a href="send-resume.html">Отправить резюме</a>
-        </div>
-    </div>
-</header>
-
+<header class="header"><div class="container header-inner"><div class="logo"><a href="index.html">Хэдлайн<span> | Headline</span></a></div><button class="burger" id="burgerBtn"><span></span><span></span><span></span></button><div class="nav" id="navMenu"><a href="index.html">Главная</a><a href="about.html">О компании</a><a href="work.html">Работа у нас</a><a href="vacancies.html">Вакансии</a><a href="career.html">Карьера</a><a href="send-resume.html">Отправить резюме</a></div></div></header>
 <main>
-    <section class="section">
-        <div class="container">
-            <h1 class="section-title">Работа у нас — строй будущее вместе с Headline</h1>
-            <p style="font-size: 1.2rem; color: var(--gray-600); max-width: 720px;">Мы создаём среду, в которой растут профессионалы. IT, автоматизация, реальные проекты — твой следующий шаг здесь.</p>
-        </div>
-    </section>
-
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <h2 class="section-title">🌱 Культура и атмосфера</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">💬</div>
-                    <h3>Открытость</h3>
-                    <p>Мы не боимся идей и обратной связи. Любой может предложить улучшение — и оно будет услышано.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🤲</div>
-                    <h3>Поддержка</h3>
-                    <p>Вместе решаем сложные задачи, делимся опытом и всегда готовы прийти на помощь коллеге.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🎯</div>
-                    <h3>Ответственность</h3>
-                    <p>Каждый отвечает за свой результат — и получает заслуженное признание и вознаграждение.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" style="background-color: var(--gray-50);">
-        <div class="container">
-            <h2 class="section-title">⭐ Наши ценности</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">📈</div>
-                    <h3>Результат</h3>
-                    <p>Ориентируемся на измеримые цели и достигаем их, не распыляясь на второстепенное.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🧠</div>
-                    <h3>Развитие</h3>
-                    <p>Постоянно учимся, пробуем новые технологии и делимся знаниями внутри команды.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">✨</div>
-                    <h3>Качество</h3>
-                    <p>Мы гордимся тем, что делаем. Код, сервис, общение — всё на высоком уровне.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🔗</div>
-                    <h3>Надёжность</h3>
-                    <p>Выполняем обещания перед клиентами и коллегами. На нас можно положиться.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">🔥 Преимущества работы в Headline</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">💰</div>
-                    <h3>Достойная зарплата</h3>
-                    <p>Регулярный пересмотр дохода, премии по итогам проектов, официальное трудоустройство.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🏠</div>
-                    <h3>Гибкий график / удалёнка</h3>
-                    <p>Можно работать из офиса в Ижевске или из любой точки РФ. Главное — результат.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📚</div>
-                    <h3>Обучение и рост</h3>
-                    <p>Оплачиваем курсы, тренинги, конференции. Поддерживаем внутренние митапы.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">👥</div>
-                    <h3>Сильная команда</h3>
-                    <p>Коллеги, которые вдохновляют. Никакого токсичного общения — только профессиональный диалог.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💻</div>
-                    <h3>Современный стек</h3>
-                    <p>Работаем с актуальными технологиями: Python, Java, React, облачные решения, базы данных.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🎉</div>
-                    <h3>Корпоративные события</h3>
-                    <p>Тимбилдинги, дни рождения компании, неформальные встречи — умеем и работать, и отдыхать.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" style="background-color: var(--gray-100); border-radius: 2rem; margin: 0 1rem 2rem 1rem;">
-        <div class="container text-center">
-            <h2 class="section-title">Стань частью команды Headline</h2>
-            <p style="margin-bottom: 2rem; color: var(--gray-600);">Откликайся на вакансии или отправляй резюме на рассмотрение — мы всегда ищем таланты.</p>
-            <a href="vacancies.html" class="btn btn-primary">Смотреть вакансии</a>
-            <a href="send-resume.html" style="margin-left: 1rem;" class="btn">Отправить резюме</a>
-        </div>
-    </section>
+    <section class="section"><div class="container"><h1 class="section-title">Работа у нас — строй будущее вместе с Headline</h1><p style="font-size:1.2rem; color:var(--gray-600); max-width:720px;">Мы создаём среду, в которой растут профессионалы. IT, автоматизация, реальные проекты — твой следующий шаг здесь.</p></div></section>
+    <section class="section" style="padding-top:0;"><div class="container"><h2 class="section-title">🌱 Культура и атмосфера</h2><div class="grid-3"><div class="card"><div class="card-icon">💬</div><h3>Открытость</h3><p>Мы не боимся идей и обратной связи. Любой может предложить улучшение — и оно будет услышано.</p></div><div class="card"><div class="card-icon">🤲</div><h3>Поддержка</h3><p>Вместе решаем сложные задачи, делимся опытом и всегда готовы прийти на помощь коллеге.</p></div><div class="card"><div class="card-icon">🎯</div><h3>Ответственность</h3><p>Каждый отвечает за свой результат — и получает заслуженное признание и вознаграждение.</p></div></div></div></section>
+    <section class="section" style="background-color:var(--gray-50);"><div class="container"><h2 class="section-title">⭐ Наши ценности</h2><div class="grid-3"><div class="card"><div class="card-icon">📈</div><h3>Результат</h3><p>Ориентируемся на измеримые цели и достигаем их, не распыляясь на второстепенное.</p></div><div class="card"><div class="card-icon">🧠</div><h3>Развитие</h3><p>Постоянно учимся, пробуем новые технологии и делимся знаниями внутри команды.</p></div><div class="card"><div class="card-icon">✨</div><h3>Качество</h3><p>Мы гордимся тем, что делаем. Код, сервис, общение — всё на высоком уровне.</p></div><div class="card"><div class="card-icon">🔗</div><h3>Надёжность</h3><p>Выполняем обещания перед клиентами и коллегами. На нас можно положиться.</p></div></div></div></section>
+    <section class="section"><div class="container"><h2 class="section-title">🔥 Преимущества работы в Headline</h2><div class="grid-3"><div class="card"><div class="card-icon">💰</div><h3>Достойная зарплата</h3><p>Регулярный пересмотр дохода, премии по итогам проектов, официальное трудоустройство.</p></div><div class="card"><div class="card-icon">🏠</div><h3>Гибкий график / удалёнка</h3><p>Можно работать из офиса в Ижевске или из любой точки РФ. Главное — результат.</p></div><div class="card"><div class="card-icon">📚</div><h3>Обучение и рост</h3><p>Оплачиваем курсы, тренинги, конференции. Поддерживаем внутренние митапы.</p></div><div class="card"><div class="card-icon">👥</div><h3>Сильная команда</h3><p>Коллеги, которые вдохновляют. Никакого токсичного общения — только профессиональный диалог.</p></div><div class="card"><div class="card-icon">💻</div><h3>Современный стек</h3><p>Работаем с актуальными технологиями: Python, Java, React, облачные решения, базы данных.</p></div><div class="card"><div class="card-icon">🎉</div><h3>Корпоративные события</h3><p>Тимбилдинги, дни рождения компании, неформальные встречи — умеем и работать, и отдыхать.</p></div></div></div></section>
+    <section class="section" style="background-color:var(--gray-100); border-radius:2rem; margin:0 1rem 2rem 1rem;"><div class="container text-center"><h2 class="section-title">Стань частью команды Headline</h2><p style="margin-bottom:2rem; color:var(--gray-600);">Откликайся на вакансии или отправляй резюме на рассмотрение — мы всегда ищем таланты.</p><a href="vacancies.html" class="btn btn-primary">Смотреть вакансии</a> <a href="send-resume.html" style="margin-left:1rem;" class="btn">Отправить резюме</a></div></section>
 </main>
-
-<footer class="footer">
-    <div class="container">
-        <p>© 2026 Хэдлайн (Headline) — IT-решения для ритейла и ресторанов. Ижевск.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Присоединяйся к команде профессионалов</p>
-    </div>
-</footer>
+<footer class="footer"><div class="container"><p>© 2026 Хэдлайн (Headline) — IT-решения для ритейла и ресторанов. Ижевск.</p><p style="margin-top:0.5rem; font-size:0.85rem;">Присоединяйся к команде профессионалов</p></div></footer>
+<script>
+    const burger=document.getElementById('burgerBtn'), nav=document.getElementById('navMenu');
+    if(burger&&nav){ burger.addEventListener('click',()=>{ burger.classList.toggle('active'); nav.classList.toggle('active'); }); nav.querySelectorAll('a').forEach(link=>{ link.addEventListener('click',()=>{ burger.classList.remove('active'); nav.classList.remove('active'); }); }); }
+</script>
 </body>
 </html>
